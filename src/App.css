@@ -1,0 +1,54 @@
+.app {
+    --bg: #f0ebeb;
+    --orange: #FF4B2B;
+    --text: #161616;
+    --subtext: #3a3a3a;
+    --active: #a5764a;
+    --shadow: #b3b3b3;
+}
+
+.app[data-dark="true"] {
+    --bg: #2e3235;
+    --orange: #FF4B2B;
+    --text: #f0ebeb;
+    --subtext: #cccccc;
+    --active: #a5764a;
+    --shadow: transperant;
+}
+
+.app {
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+.app,
+.app * {
+    transition-property: background-color, color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+a {
+    font-weight: 500;
+    text-decoration: inherit;
+}
+
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: var(--orange);
+    color: #f0ebeb;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+.wrapper {
+    width: min(1480px, 99vw);
+    margin-inline: auto;
+    border: 1px dashed black;
+}

@@ -1,0 +1,9 @@
+.home-cards-grid {
+    padding-block: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    column-gap: 80px;
+    justify-content: center;
+    grid-template-rows: auto;
+    row-gap: 30px;
+}

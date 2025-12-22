@@ -1,0 +1,57 @@
+.blog-header {
+    display: flex;
+    justify-content: flex-end;
+    gap: 50px;
+    padding-block: 25px;
+    align-items: center;
+}
+
+.blog-header-anchor {
+    font-size: var(--xl);
+    color: var(--text);
+}
+
+.blog-header-anchor.active {
+    color: var(--orange);
+}
+
+.moon,
+.sun {
+    font-size: 20px;
+}
+
+.sun {
+    color: rgb(241, 241, 177);
+}
+
+.moon {
+    color: #2e3235;
+}
+
+.theme-switch {
+    background-color: var(--orange);
+    width: 80px;
+    height: 30px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 5px;
+    position: relative;
+    cursor: pointer;
+}
+
+.circle {
+    width: 23px;
+    height: 23px;
+    position: absolute;
+    background-color: aliceblue;
+    border-radius: 50%;
+    transition: all 0.5s linear;
+    left: 5px;
+}
+
+.app[data-dark="true"] .circle {
+    background-color: #2e3235;
+    left: 55px;
+}
