@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useRef } from 'react'
 import './Article.css'
 import DOMPurify from 'dompurify'
-import api from './../../../../utils/Api.js'
+import api from './../../../utils/Api.js'
 import { useParams } from 'react-router'
-import Comments from '../../../Comments/Comments.jsx'
-import NewComment from '../../../New-Comment/NewComment.jsx'
+import Comments from './../../Comments/Comments.jsx'
 
 export default function Article() {
     let param = useParams();
@@ -16,7 +15,7 @@ export default function Article() {
 
     useEffect(() => {
         async function getArticle() {
-            let result = await api(`/blogs/${param.id}`);
+            let [result, ok] = await api(`/blogs/${param.id}`);
             setArticle(result.blog);
         }
         getArticle();

@@ -7,8 +7,8 @@ export default function HomeArticles() {
     const [articles, setArticles] = useState(null)
     useEffect(() => {
         async function fetchData() {
-            let data = await api('/blogs');
-            setArticles(data.blogs);
+            let [result, ok] = await api('/blogs');
+            setArticles(result.blogs);
         }
         fetchData();
     }, [])

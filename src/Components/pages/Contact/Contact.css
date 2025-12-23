@@ -1,0 +1,18 @@
+.contact-social {
+    font-size: 100px;
+}
+
+.social-container p {
+    font-size: 2rem;
+}
+
+.social-container a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.socials-container {
+    display: flex;
+    justify-content: space-around;
+}

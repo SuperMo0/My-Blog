@@ -9,5 +9,5 @@ export default async function apiRequest(path, options = {}) {
             'Content-Type': 'Application/json'
         }
     });
-    return await response.json();
+    return [await response.json(), response.ok];
 }

@@ -19,7 +19,7 @@ export default function ArticleCard({ article }) {
 
     async function handleLike(e) {
         e.stopPropagation();
-        let res = await api(`/blogs/${article.id}/like`, { method: 'post' });
+        let [result, ok] = await api(`/blogs/${article.id}/like`, { method: 'post' });
         setLiked(!liked);
         if (liked) {
             localStorage.removeItem(article.id);

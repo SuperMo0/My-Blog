@@ -16,7 +16,7 @@ export default function NewComment({ id, handleAddComment }) {
 
         e.target.reset();
 
-        let result = await api(`/blogs/${id}`, { method: 'post', body: JSON.stringify(object) });
+        let [result, ok] = await api(`/blogs/${id}`, { method: 'post', body: JSON.stringify(object) });
 
         handleAddComment(result.comment);
     }

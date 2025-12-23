@@ -11,8 +11,8 @@ export default function Comments({ id }) {
 
     useEffect(() => {
         async function getComments() {
-            let response = await api(`/blogs/${id}/comments`);
-            setComments(response.comments);
+            let [result, ok] = await api(`/blogs/${id}/comments`);
+            setComments(result.comments);
         }
         getComments();
     }, [])
