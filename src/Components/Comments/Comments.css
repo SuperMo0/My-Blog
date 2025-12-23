@@ -1,0 +1,32 @@
+.avatar {
+    width: 50px;
+    height: 50px;
+    background-color: var(--orange);
+    color: var(--text);
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+}
+
+.user {
+    font-size: 30px;
+}
+
+.comment-author {
+    display: flex;
+    gap: 5px;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 30px;
+    border: 1px solid var(--light-text);
+    padding: 10px;
+}
+
+.comments-section-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}

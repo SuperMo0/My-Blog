@@ -17,7 +17,8 @@ export default function ArticleCard({ article }) {
         if (like) setLiked(true);
     })
 
-    async function handleLike() {
+    async function handleLike(e) {
+        e.stopPropagation();
         let res = await api(`/blogs/${article.id}/like`, { method: 'post' });
         setLiked(!liked);
         if (liked) {
@@ -35,9 +36,9 @@ export default function ArticleCard({ article }) {
             <img className='home-article-card-image' src="https://picsum.photos/300" alt="" />
             <div className="home-article-card-meta-wrapper">
                 <h2 className='home-article-card-title'>{article.title}</h2>
-                <div className="data-like-container">
+                <div className="date-like-container ">
                     <p className='home-article-card-date'>{article.created_at.slice(0, 10)} </p>
-                    <div style={{ display: 'flex', gap: '5px', alignItems: "center" }} className="container">
+                    <div style={{ display: 'flex', gap: '5px', alignItems: "center" }} >
                         <p>{article.likes}</p>
                         {liked ? <GoHeartFill onClick={handleLike} className='love-red'></GoHeartFill> : <GoHeart onClick={handleLike} className='love' />}
                     </div>

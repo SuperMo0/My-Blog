@@ -1,29 +1,38 @@
-:root {
-  line-height: 1.5;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  --xxxl: 3rem;
-  --xxl: 2rem;
-  --xl: 1.8rem;
-  --l: 1.5rem;
-  --m: 1.2rem;
-  --s: 1rem;
-  --body-font: 'Merriweather', serif;
-}
+  @import "tailwindcss";
+  @plugin "@tailwindcss/typography";
 
-* {
-  color: inherit;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
+  :root {
+    line-height: 1.5;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    --xxxl: 3rem;
+    --xxl: 2rem;
+    --xl: 1.8rem;
+    --l: 1.5rem;
+    --m: 1.2rem;
+    --s: 1rem;
+    --body-font: 'Merriweather', serif;
+  }
 
-body {
-  font-family: var(--body-font);
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-}
+  * {
+    color: inherit;
+    box-sizing: border-box;
+  }
+
+  input:focus {
+    outline: 1px solid var(--text);
+
+  }
+
+  textarea:focus {
+    outline: 1px solid var(--text)
+  }
+
+  body {
+    font-family: var(--body-font);
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+  }

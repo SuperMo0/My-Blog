@@ -1,0 +1,20 @@
+.comment-section-input {
+    border: 1px solid var(--light-text);
+    display: block;
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 10px;
+    color: var(--text);
+    border-radius: 10px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--light-text);
+}
+
+.comment-section-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
