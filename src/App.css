@@ -22,6 +22,7 @@
     background-color: var(--bg);
     color: var(--text);
     min-height: 100vh;
+    padding-bottom: 50px;
 }
 
 .app,

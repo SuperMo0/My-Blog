@@ -68,8 +68,6 @@ export default function EditorPage({ dark }) {
         setPreview(!preview);
     }
 
-    // <Notification ref={notifyRef}></Notification>
-
     if (loading) return <h1>loading.....</h1>;
 
     let content = editorRef.current ? editorRef.current.getContent() : InitialContent;

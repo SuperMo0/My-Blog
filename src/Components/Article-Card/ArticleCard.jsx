@@ -33,7 +33,6 @@ export default function ArticleCard({ article }) {
 
     return (
         <div onClick={() => { navigate(`/blogs/${article.id}`) }} className='article-card'>
-            <img className='home-article-card-image' src="https://picsum.photos/300" alt="" />
             <div className="home-article-card-meta-wrapper">
                 <h2 className='home-article-card-title'>{article.title}</h2>
                 <div className="date-like-container ">

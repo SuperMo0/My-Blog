@@ -24,7 +24,7 @@ export default function MyEditor({ content, EditorRef }) {
                 license_key: 'gpl',
                 height: 500,
                 menubar: true,
-                preview_styles: 'dark,prism.css',
+                preview_styles: 'dark',
                 plugins: [
                     'advlist', 'autolink', 'lists', 'link', 'image', 'charmap',
                     'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',

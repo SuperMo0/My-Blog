@@ -5,15 +5,15 @@ import DOMPurify from 'dompurify'
 import api from './../../../utils/Api.js'
 import { useParams } from 'react-router'
 import Comments from './../../Comments/Comments.jsx'
+import prism from 'prismjs'
 
 export default function Article({ preview, previewContent }) {
     let param = useParams();
     const [article, setArticle] = useState(null);
 
     let content = previewContent;
-    console.log(content);
 
-    if (article) content = DOMPurify.sanitize(article.content);
+    if (article) content = DOMPurify.sanitize(article.content, { ADD_ATTR: ['target'] });
 
     useEffect(() => {
         if (preview) return;
@@ -23,11 +23,18 @@ export default function Article({ preview, previewContent }) {
         }
         getArticle();
     }, [])
+
+    useEffect(() => {
+        prism.highlightAll();
+    })
+
+    if (!article) return <></>
     return (
         <>
             <div className="wrapper">
                 <div className="main-content">
-                    <article className="prose lg:prose-lg" dangerouslySetInnerHTML={{ __html: content }}></article>
+                    <article className="prose sm:prose-lg prose-img:!w-full  prose-img:!h-auto prose-img:rounded-lg prose-pre:max-w-[calc(99vw)] prose-pre:overflow-x-auto"
+                        dangerouslySetInnerHTML={{ __html: content }}></article>
                 </div>
             </div >
             {!preview && <Comments id={param.id}></Comments>}
