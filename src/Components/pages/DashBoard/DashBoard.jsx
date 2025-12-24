@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useLocation } from 'react-router'
+import { Link, useLocation } from 'react-router'
 import './Dashboard.css'
 import { GoHeart } from "react-icons/go";
 import { GoTrash } from "react-icons/go";
@@ -29,8 +29,7 @@ export default function DashBoard() {
 
     async function handleStatus(id, status) {
         let body = {
-            status: !status,
-
+            published: !status,
         }
         const [result, ok] = await api(`/admin/blogs/${id}`, { method: 'put', body: JSON.stringify(body) });
 
@@ -42,7 +41,9 @@ export default function DashBoard() {
 
     return (
         <div className="wrapper">
-            <button className='new-article-button'>New article</button>
+            <Link to={'/admin/editor'}>
+                <button className='new-article-button'>New article</button>
+            </Link>
             <div className="board">
                 <table>
                     <thead>
@@ -66,10 +67,10 @@ export default function DashBoard() {
                                         <td> <div className="flex"> {a.likes} <GoHeart></GoHeart></div> </td>
                                         <td>
                                             <div className="flex">
-                                                {a.published ? <button onClick={() => { handleStatus(a.id, a.status) }}>unpublish</button> : <button onClick={() => { handleStatus(a.id, a.status) }}>publish</button>}
+                                                {a.published ? <button onClick={() => { handleStatus(a.id, a.published) }}>unpublish</button> : <button onClick={() => { handleStatus(a.id, a.published) }}>publish</button>}
 
 
-                                                <button>Edit</button>
+                                                <Link to={`/admin/editor/${a.id}`}><button >Edit</button></Link>
                                                 <  GoTrash className='trash' onClick={() => { handleDelete(a.id) }} />
 
                                             </div>
