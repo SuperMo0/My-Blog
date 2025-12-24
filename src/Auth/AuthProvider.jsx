@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { Outlet } from 'react-router';
 import { createContext } from 'react';
+import { useContext } from 'react';
 
-export const AuthContext = createContext();
 
-export default function AuthProvider({ handleThemeChange }) {
-    const [admin, setAdmin] = useState(null);
-    const [token, setToken] = useState(null);
+const AuthContext = createContext();
 
-    useEffect(() => {
-        handleThemeChange(true);
-        let token = localStorage.getItem('token');
-        if (!token) return;
+export default function AuthProvider({ children }) {
+    const [token, setToken] = useState(localStorage.getItem('token'));
+
+    let admin = null;
+    if (token) {
         let data = token.split('.');
         data = data[1];
         data.replace(/\-/g, '+');
         data.replace(/\_/g, '/');
-        data = atob(data);
-        setAdmin(JSON.parse(data));
-    }, [token])
+        admin = atob(data);
+    }
 
     function login(token) {
         localStorage.setItem('token', token);
@@ -27,14 +25,12 @@ export default function AuthProvider({ handleThemeChange }) {
 
     function logout(token) {
         localStorage.removeItem('token');
-        setAdmin(null);
         setToken(null);
     }
-
-
     return (
         <AuthContext value={{ login, logout, admin }}>
-            <Outlet></Outlet>
+            {children}
         </AuthContext >
     )
 }
+export const useAuth = () => useContext(AuthContext);

@@ -8,7 +8,9 @@ import About from './Components/pages/About/About'
 import Contact from './Components/pages/Contact/Contact'
 import Login from './Components/pages/Login/Login';
 import Guest from './layouts/Guest';
-import AuthProvider from './Auth/AuthProvider';
+import DashBoard from './Components/pages/DashBoard/DashBoard';
+import RequireGuest from './Auth/RequireGuest';
+import RequireAuth from './Auth/RequireAuth';
 
 function App() {
   const [dark, setDark] = useState(false);
@@ -25,13 +27,10 @@ function App() {
           <Route path='/contact' element={<Contact />}></Route>
           <Route path='/blogs/:id' element={<Article />}></Route>
         </Route>
-
-        <Route path='/admin' element={<AuthProvider handleThemeChange={handleThemeChange} />}>
-          <Route path='login' element={<Login></Login>}></Route>
-
-
-
-
+        <Route path='/admin' element={<Guest handleThemeChange={handleThemeChange}></Guest>}>
+          <Route path='login' element={<RequireGuest><Login /></RequireGuest>}></Route>
+          <Route path='dashboard' element={<RequireAuth> <DashBoard /></RequireAuth>}></Route>
+          {/* <Route path='dashboard' element={<RequireAuth> <Editor/></RequireAuth>}></Route> */}
         </Route>
 
 

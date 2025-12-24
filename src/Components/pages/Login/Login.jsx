@@ -1,16 +1,15 @@
 import React from 'react'
 import './Login.css'
 import { useContext } from 'react'
-import { AuthContext } from '../../../Auth/AuthProvider'
+import { useAuth } from '../../../Auth/AuthProvider'
 import api from './../../../utils/Api.js'
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 
 export default function Login() {
-    const { login } = useContext(AuthContext);
+    const { login, admin } = useAuth();
     const [message, setMessage] = useState(null);
     const navigate = useNavigate();
-
 
     async function handleLoginSubmit(e) {
         e.preventDefault();

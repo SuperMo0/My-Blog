@@ -36,3 +36,9 @@
     min-width: 320px;
     min-height: 100vh;
   }
+
+  .flex {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }

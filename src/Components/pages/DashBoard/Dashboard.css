@@ -1,0 +1,53 @@
+.board {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(214, 214, 214);
+    font-family: sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+caption {
+    caption-side: bottom;
+    padding: 10px;
+    font-weight: bold;
+}
+
+
+th {
+    font-weight: bolder;
+    font-size: 1rem;
+}
+
+th,
+td {
+    border-bottom: 1px solid rgb(204, 204, 204);
+    padding: 8px 10px;
+}
+
+.published,
+.unpublished {
+    background-color: #81c796;
+    padding: 8px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.unpublished {
+    background-color: #b6b6b6;
+}
+
+.trash {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.new-article-button {
+    display: block;
+    margin-left: auto;
+}
